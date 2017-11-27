@@ -19,6 +19,8 @@ TagManager:
   - tile13
   - tile14
   - tile15
+  - tile16
+  - drop
   layers:
   - Default
   - TransparentFX

@@ -53,7 +53,9 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\AdjustResolution.cs" />
      <Compile Include="Assets\Scripts\BaseClasses.cs" />
+     <Compile Include="Assets\Scripts\DestroyByContact.cs" />
      <Compile Include="Assets\Scripts\Displaymarker.cs" />
+     <Compile Include="Assets\Scripts\Drops.cs" />
      <Compile Include="Assets\Scripts\GameController.cs" />
      <Compile Include="Assets\Scripts\ObjectPool.cs" />
      <None Include="Assets\Resources\Songs\audio.txt" />

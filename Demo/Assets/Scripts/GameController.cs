@@ -13,10 +13,14 @@ public class GameController : MonoBehaviour {
     public List<PressState>[] tilearray;
     public int[] tilecount = new int[15];
     public Animator[] tiles = new Animator[15];
+    public Animator[] drops = new Animator[4];
     public float starttime;
     public Text text;
-	// Use this for initialization
-	void Start () {
+    ObjectPool pool;
+    // Use this for initialization
+    void Start () {
+        pool = ObjectPool.GetInstance();
+        // pool.Delete(note1);
         tilearray = new List<PressState>[15];
         Input.multiTouchEnabled = true;
         songtiming = Resources.Load("Songs/audio", typeof(TextAsset)) as TextAsset;
@@ -47,6 +51,7 @@ public class GameController : MonoBehaviour {
                 tilearray[i][tilecount[i]].isexceeded = false;
                 tiles[i].SetTrigger("marker");
                 tilearray[i][tilecount[i]].isplayed = true;
+                GameObject drop = pool.Instantiate(new Vector3(-1.06f, 1.082f, -1f));
             }
             if (Time.time * 1000 - starttime >= tilearray[i][tilecount[i]].duepressedtime + 250 + offset
                  && tilearray[i][tilecount[i]].isexceeded == false)
@@ -55,56 +60,53 @@ public class GameController : MonoBehaviour {
                 tilecount[i]++;
             }
         }
-
-        //if (Time.time * 1000 - starttime >= tilearray[0][tilecount[0]].duepressedtime - 250 + offset &&
-        //    tilearray[0][tilecount[0]].isplayed == false)
-        //{
-        //    tiles[0].SetTrigger("marker");
-        //    tilearray[0][tilecount[0]].isplayed = true;
-        //}
-        //if (Time.time * 1000 - starttime >= tilearray[0][tilecount[0]].duepressedtime + 200 + offset
-        //     && tilearray[0][tilecount[0]].isexceeded == false)
-        //{
-        //    tilearray[0][tilecount[0]].isexceeded = true;
-        //    tilecount[0]++;
-        //}
-
-        //if (Input.GetMouseButtonDown(0))
-        //{
-        //    Collider2D[] cols = Physics2D.OverlapPointAll(Camera.main.ScreenToWorldPoint(Input.mousePosition));
-        //    foreach (Collider2D col in cols)
-        //    {
-        //        string tag = col.gameObject.tag;
-        //        Trigger(tag[4] - 49);
-        //    }
-        //}
-        if (Input.touchCount >= 1)
+        if (Input.GetMouseButtonDown(0))
         {
-            for(int n = 0; n < Input.touchCount; n++) {
-                if(Input.touches[n].phase == TouchPhase.Began)
-                {
-                    Collider2D col = Physics2D.OverlapPoint(Camera.main.ScreenToWorldPoint(Input.touches[n].position));
-                    string tag = col.gameObject.tag;
-                    Trigger(tag[4] - 49);
-                }
+            Collider2D[] cols = Physics2D.OverlapPointAll(Camera.main.ScreenToWorldPoint(Input.mousePosition));
+            foreach (Collider2D col in cols)
+            {
 
+                string tag = col.gameObject.tag;
+                
+                Trigger(Convert.ToInt32(tag.Substring(4)));
             }
         }
+        //if (Input.touchCount >= 1)
+        //{
+        //    for(int n = 0; n < Input.touchCount; n++) {
+        //        if(Input.touches[n].phase == TouchPhase.Began)
+        //        {
+        //            Collider2D col = Physics2D.OverlapPoint(Camera.main.ScreenToWorldPoint(Input.touches[n].position));
+        //            string tag = col.gameObject.tag;
+        //            Trigger(tag[4] - 49);
+        //        }
+
+        //    }
+        //}
     }
     void Trigger(int i)
     {
-        float delta = Math.Abs(Time.time * 1000 + offset2 - starttime
+        i--;
+        if(i <= 14)
+        {
+            float delta = Math.Abs(Time.time * 1000 + offset2 - starttime
             - tilearray[i][tilecount[i]].duepressedtime);
-        bool istouched = tilearray[i][tilecount[i]].istouched;
-        if (delta <= 85f && istouched == false)
-        {
-            tiles[i].SetTrigger("perfect");
-            tilearray[i][tilecount[i]].istouched = true;
+            bool istouched = tilearray[i][tilecount[i]].istouched;
+            if (delta <= 85f && istouched == false)
+            {
+                tiles[i].SetTrigger("perfect");
+                tilearray[i][tilecount[i]].istouched = true;
+            }
+            if (delta >= 85f && delta <= 250f && istouched == false)
+            {
+                tiles[i].SetTrigger("cool");
+                tilearray[i][tilecount[i]].istouched = true;
+            }
         }
-        if (delta >= 85f && delta <= 250f && istouched == false)
+        else
         {
-            tiles[i].SetTrigger("cool");
-            tilearray[i][tilecount[i]].istouched = true;
+            Debug.Log(i - 15);
+            drops[i - 15].SetTrigger("perfect");
         }
     }
 }
