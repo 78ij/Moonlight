@@ -58,9 +58,12 @@
      <Compile Include="Assets\Scripts\Drops.cs" />
      <Compile Include="Assets\Scripts\GameController.cs" />
      <Compile Include="Assets\Scripts\ObjectPool.cs" />
+     <Compile Include="Assets\Scripts\ScenerioController.cs" />
+     <None Include="Assets\Resources\Songs\audiodrop.txt" />
      <None Include="Assets\Resources\Songs\audio.txt" />
-     <None Include="Assets\Resources\Songs\life.txt" />
-     <None Include="Assets\Resources\Songs\anima.txt" />
+     <None Include="Assets\Resources\Scenario\1.txt" />
+     <None Include="Assets\Resources\Songs\pathetique.txt" />
+     <None Include="Assets\Resources\Songs\pathetiquedrop.txt" />
  <Reference Include="UnityEngine.UI">
  <HintPath>D:/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

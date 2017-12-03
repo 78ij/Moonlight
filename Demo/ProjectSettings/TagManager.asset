@@ -21,6 +21,14 @@ TagManager:
   - tile15
   - tile16
   - drop
+  - tile17
+  - tile18
+  - tile19
+  - 1
+  - 2
+  - 3
+  - 4
+  - sceneriocontroller
   layers:
   - Default
   - TransparentFX
