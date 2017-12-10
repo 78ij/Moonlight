@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Unnamed.UnnamedGame
+namespace Unnamed.Moonlight
 {
     public class PressState
     {

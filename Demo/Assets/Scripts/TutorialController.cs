@@ -6,9 +6,9 @@ using UnityEngine;
 using UnityEngine.UI;
 using Unnamed.Moonlight;
 
-public class GameController : MonoBehaviour {
+public class TutorialController : MonoBehaviour {
     bool ispaused;
-    public int offset, offset2, offset3;
+    public int offset,offset2,offset3;
     TextAsset songtiming;
     string[] timingarray;
     public List<PressState>[] tilearray;
@@ -22,15 +22,12 @@ public class GameController : MonoBehaviour {
     public Animator[] drops = new Animator[4];
     public float starttime;
     public Text text;
-    public Text pausetext;
     float pausetime;
     ObjectPool pool;
     AudioSource audiosource;
 
     // Use this for initialization
-    void Start()
-    {
-        pausetext.text = "";
+    void Start () {
         ispaused = false;
         audiosource = GetComponent<AudioSource>();
         pool = ObjectPool.GetInstance();
@@ -51,8 +48,8 @@ public class GameController : MonoBehaviour {
             }
         }
         loadmusic("pathetique");
-    }
-
+	}
+    
     // Update is called once per frame
     void FixedUpdate()
     {
@@ -73,7 +70,7 @@ public class GameController : MonoBehaviour {
             tileall[position]++;
         }
 
-        songtiming = Resources.Load("Songs/" + music + "drop", typeof(TextAsset)) as TextAsset;
+        songtiming = Resources.Load("Songs/" + music+"drop", typeof(TextAsset)) as TextAsset;
         text = songtiming.text;
         timingarray = text.Split('\n');
         foreach (string timing in timingarray)
@@ -89,7 +86,7 @@ public class GameController : MonoBehaviour {
     void Trigger(int i)
     {
         i--;
-        if (i <= 14)
+        if(i <= 14)
         {
             i = convert(i);
             float delta = Math.Abs(Time.time * 1000 + offset2 - starttime
@@ -243,8 +240,9 @@ public class GameController : MonoBehaviour {
     }
     void resume()
     {
-        StartCoroutine(resumescene());
-
+        audiosource.UnPause();
+        Time.timeScale = 1;
+        ispaused = false;
     }
     public void OnClick()
     {
@@ -256,28 +254,5 @@ public class GameController : MonoBehaviour {
         {
             resume();
         }
-    }
-    IEnumerator resumescene()
-    {                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             
-        float start = Time.realtimeSinceStartup;
-        pausetext.text = "3";
-        while (Time.realtimeSinceStartup < start + 1)
-        {
-            yield return null;
-        }
-        pausetext.text = "2";
-        while (Time.realtimeSinceStartup < start + 2)
-        {
-            yield return null;
-        }
-        pausetext.text = "1";
-        while (Time.realtimeSinceStartup < start + 3)
-        {
-            yield return null;
-        }
-        pausetext.text = "";
-        audiosource.UnPause();
-        Time.timeScale = 1;
-        ispaused = false;
     }
 }

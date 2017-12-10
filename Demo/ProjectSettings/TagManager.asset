@@ -29,6 +29,7 @@ TagManager:
   - 3
   - 4
   - sceneriocontroller
+  - pause
   layers:
   - Default
   - TransparentFX
