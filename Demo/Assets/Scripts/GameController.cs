@@ -8,18 +8,27 @@ using Unnamed.Moonlight;
 
 public class GameController : MonoBehaviour {
     bool ispaused;
+    /// <summary>
+    /// offset:  offset of displaying marker & drop
+    /// offset2: offset of tile triggering
+    /// offset3: offset of drop triggering
+    /// </summary>
     public int offset, offset2, offset3;
     TextAsset songtiming;
     string[] timingarray;
     public List<PressState>[] tilearray;
     public List<PressState>[] droparray;
+
     public int[] tilecount = new int[15];
     public int[] tileall = new int[15];
+
     public int[] dropcount = new int[4];
     public int[] dropall = new int[4];
+
     public Queue<GameObject>[] drop = new Queue<GameObject>[4];
     public Animator[] tiles = new Animator[15];
     public Animator[] drops = new Animator[4];
+
     public float starttime;
     public Text text;
     public Text pausetext;
@@ -244,7 +253,6 @@ public class GameController : MonoBehaviour {
     void resume()
     {
         StartCoroutine(resumescene());
-
     }
     public void OnClick()
     {

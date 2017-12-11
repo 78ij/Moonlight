@@ -1,6 +1,7 @@
 ﻿ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using Unnamed.Moonlight;
 public class ScenerioController : MonoBehaviour
 {
@@ -15,12 +16,14 @@ public class ScenerioController : MonoBehaviour
     float lasttime;
     public float deltatime;
     string nextbgi;
-    int textcount, currenttext,currenttextword,currenttextlength;
+    public int textcount;
+    public int currenttext;
+    int currenttextword,currenttextlength;
     // Use this for initialization
     void Start()
     {
         isdisplaying = true;
-        scenario = Resources.Load("Scenario/1", typeof(TextAsset)) as TextAsset;
+        scenario = Resources.Load("Scenario/0", typeof(TextAsset)) as TextAsset;
         string text = scenario.text;
         texts = text.Split('\n');
         textcount = texts.Length - 1;
@@ -69,13 +72,17 @@ public class ScenerioController : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(0))
             {
-                maintext.text = "";
-                isdisplaying = true;
-                currenttext++;
-                currenttextword = 0;
-                currenttextlength = texts[currenttext].Length - 1;
-                pagebreak.SetTrigger("idle");
-
+                if (currenttext++ >= textcount - 1 )
+                {
+                    SceneManager.LoadScene(0);
+                }
+                else {
+                    maintext.text = "";
+                    isdisplaying = true;
+                    currenttextword = 0;
+                    currenttextlength = texts[currenttext].Length - 1;
+                    pagebreak.SetTrigger("idle");
+                }
             }
         }
     }
