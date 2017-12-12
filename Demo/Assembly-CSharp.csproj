@@ -8,7 +8,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <RootNamespace></RootNamespace>
+    <RootNamespace>
+    </RootNamespace>
     <ProjectGuid>{A77DEB61-50BA-3D2B-BA85-CD07C2DB2C66}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -51,67 +52,66 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\AdjustResolution.cs" />
-     <Compile Include="Assets\Scripts\BaseClasses.cs" />
-     <Compile Include="Assets\Scripts\DestroyByContact.cs" />
-     <Compile Include="Assets\Scripts\Displaymarker.cs" />
-     <Compile Include="Assets\Scripts\Drops.cs" />
-     <Compile Include="Assets\Scripts\GameController.cs" />
-     <Compile Include="Assets\Scripts\LoadingController.cs" />
-     <Compile Include="Assets\Scripts\ObjectPool.cs" />
-     <Compile Include="Assets\Scripts\ScenerioController.cs" />
-     <Compile Include="Assets\Scripts\StartingController.cs" />
-     <Compile Include="Assets\Scripts\TutorialController.cs" />
-     <None Include="Assets\Resources\Scenario\5.txt" />
-     <None Include="Assets\Resources\Scenario\8.txt" />
-     <None Include="Assets\Resources\Scenario\1\3.txt" />
-     <None Include="Assets\Resources\Scenario\7.txt" />
-     <None Include="Assets\Resources\Scenario\0.txt" />
-     <None Include="Assets\Resources\Songs\audiodrop.txt" />
-     <None Include="Assets\Resources\Songs\audio.txt" />
-     <None Include="Assets\Resources\Scenario\9.txt" />
-     <None Include="Assets\Resources\Scenario\1\2.txt" />
-     <None Include="Assets\Resources\Scenario\Moonlight.txt" />
-     <None Include="Assets\Resources\Scenario\11.txt" />
-     <None Include="Assets\Resources\Scenario\1\0.txt" />
-     <None Include="Assets\Resources\Scenario\1.txt" />
-     <None Include="Assets\Resources\Scenario\6.txt" />
-     <None Include="Assets\Resources\Scenario\1\11.txt" />
-     <None Include="Assets\Resources\Scenario\1\4.txt" />
-     <None Include="Assets\Resources\Scenario\1\7.txt" />
-     <None Include="Assets\Resources\Scenario\10.txt" />
-     <None Include="Assets\Resources\Scenario\1\8.txt" />
-     <None Include="Assets\Resources\Scenario\1\6.txt" />
-     <None Include="Assets\Resources\Scenario\2.txt" />
-     <None Include="Assets\Resources\Songs\pathetique.txt" />
-     <None Include="Assets\Resources\Scenario\1\5.txt" />
-     <None Include="Assets\Resources\Scenario\3.txt" />
-     <None Include="Assets\Resources\Songs\pathetiquedrop.txt" />
-     <None Include="Assets\Resources\Scenario\1\9.txt" />
-     <None Include="Assets\Resources\Scenario\1\1.txt" />
-     <None Include="Assets\Resources\Scenario\4.txt" />
-     <None Include="Assets\Resources\Scenario\1\10.txt" />
- <Reference Include="UnityEngine.UI">
- <HintPath>D:/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
- </Reference>
- <Reference Include="UnityEngine.Networking">
- <HintPath>D:/Unity/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
- </Reference>
- <Reference Include="UnityEngine.TestRunner">
- <HintPath>D:/Unity/Editor/Data/UnityExtensions/Unity/TestRunner/UnityEngine.TestRunner.dll</HintPath>
- </Reference>
- <Reference Include="nunit.framework">
- <HintPath>D:/Unity/Editor/Data/UnityExtensions/Unity/TestRunner/net35/unity-custom/nunit.framework.dll</HintPath>
- </Reference>
- <Reference Include="UnityEngine.Timeline">
- <HintPath>D:/Unity/Editor/Data/UnityExtensions/Unity/Timeline/RuntimeEditor/UnityEngine.Timeline.dll</HintPath>
- </Reference>
- <Reference Include="UnityEngine.Analytics">
- <HintPath>D:/Unity/Editor/Data/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll</HintPath>
- </Reference>
- <Reference Include="UnityEngine.HoloLens">
- <HintPath>D:/Unity/Editor/Data/UnityExtensions/Unity/UnityHoloLens/RuntimeEditor/UnityEngine.HoloLens.dll</HintPath>
- </Reference>
+    <Compile Include="Assets\Scripts\AdjustResolution.cs" />
+    <Compile Include="Assets\Scripts\BaseClasses.cs" />
+    <Compile Include="Assets\Scripts\DestroyByContact.cs" />
+    <Compile Include="Assets\Scripts\Displaymarker.cs" />
+    <Compile Include="Assets\Scripts\Drops.cs" />
+    <Compile Include="Assets\Scripts\GameController.cs" />
+    <Compile Include="Assets\Scripts\LoadingController.cs" />
+    <Compile Include="Assets\Scripts\ObjectPool.cs" />
+    <Compile Include="Assets\Scripts\ScenerioController.cs" />
+    <Compile Include="Assets\Scripts\StartingController.cs" />
+    <None Include="Assets\Resources\Scenario\5.txt" />
+    <None Include="Assets\Resources\Scenario\8.txt" />
+    <None Include="Assets\Resources\Scenario\1\3.txt" />
+    <None Include="Assets\Resources\Scenario\7.txt" />
+    <None Include="Assets\Resources\Scenario\0.txt" />
+    <None Include="Assets\Resources\Songs\audiodrop.txt" />
+    <None Include="Assets\Resources\Songs\audio.txt" />
+    <None Include="Assets\Resources\Scenario\9.txt" />
+    <None Include="Assets\Resources\Scenario\1\2.txt" />
+    <None Include="Assets\Resources\Scenario\Moonlight.txt" />
+    <None Include="Assets\Resources\Scenario\11.txt" />
+    <None Include="Assets\Resources\Scenario\1\0.txt" />
+    <None Include="Assets\Resources\Scenario\1.txt" />
+    <None Include="Assets\Resources\Scenario\6.txt" />
+    <None Include="Assets\Resources\Scenario\1\11.txt" />
+    <None Include="Assets\Resources\Scenario\1\4.txt" />
+    <None Include="Assets\Resources\Scenario\1\7.txt" />
+    <None Include="Assets\Resources\Scenario\10.txt" />
+    <None Include="Assets\Resources\Scenario\1\8.txt" />
+    <None Include="Assets\Resources\Scenario\1\6.txt" />
+    <None Include="Assets\Resources\Scenario\2.txt" />
+    <None Include="Assets\Resources\Songs\pathetique.txt" />
+    <None Include="Assets\Resources\Scenario\1\5.txt" />
+    <None Include="Assets\Resources\Scenario\3.txt" />
+    <None Include="Assets\Resources\Songs\pathetiquedrop.txt" />
+    <None Include="Assets\Resources\Scenario\1\9.txt" />
+    <None Include="Assets\Resources\Scenario\1\1.txt" />
+    <None Include="Assets\Resources\Scenario\4.txt" />
+    <None Include="Assets\Resources\Scenario\1\10.txt" />
+    <Reference Include="UnityEngine.UI">
+      <HintPath>D:/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.Networking">
+      <HintPath>D:/Unity/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.TestRunner">
+      <HintPath>D:/Unity/Editor/Data/UnityExtensions/Unity/TestRunner/UnityEngine.TestRunner.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.framework">
+      <HintPath>D:/Unity/Editor/Data/UnityExtensions/Unity/TestRunner/net35/unity-custom/nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.Timeline">
+      <HintPath>D:/Unity/Editor/Data/UnityExtensions/Unity/Timeline/RuntimeEditor/UnityEngine.Timeline.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.Analytics">
+      <HintPath>D:/Unity/Editor/Data/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.HoloLens">
+      <HintPath>D:/Unity/Editor/Data/UnityExtensions/Unity/UnityHoloLens/RuntimeEditor/UnityEngine.HoloLens.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
@@ -121,5 +121,4 @@
   <Target Name="AfterBuild">
   </Target>
   -->
-  
 </Project>

@@ -1,12 +1,15 @@
 ﻿ using System.Collections.Generic;
 using UnityEngine;
+using System.Collections;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using Unnamed.Moonlight;
 public class ScenerioController : MonoBehaviour
 {
+    Dictionary<int, string> mapping;
     public Animator pagebreak;
     public Animator bgi;
+    public Animator transition;
     public SpriteRenderer bgirend;
     AnimatorStateInfo bgiinfo;
     public Text maintext;
@@ -22,6 +25,10 @@ public class ScenerioController : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        transition.updateMode = AnimatorUpdateMode.UnscaledTime;
+        mapping = new Dictionary<int, string>();
+        StartCoroutine(Fadein());
+        mapping.Add(0, "pathetique");
         isdisplaying = true;
         scenario = Resources.Load("Scenario/0", typeof(TextAsset)) as TextAsset;
         string text = scenario.text;
@@ -85,5 +92,16 @@ public class ScenerioController : MonoBehaviour
                 }
             }
         }
+    }
+    IEnumerator Fadein()
+    {
+        transition.SetTrigger("fadein");
+        float start = Time.realtimeSinceStartup;
+        Time.timeScale = 0;
+        while (Time.realtimeSinceStartup < start + 1.8f)
+        {
+            yield return null;
+        }
+        Time.timeScale = 1;
     }
 }

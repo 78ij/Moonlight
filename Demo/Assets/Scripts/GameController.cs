@@ -7,36 +7,72 @@ using UnityEngine.UI;
 using Unnamed.Moonlight;
 
 public class GameController : MonoBehaviour {
+    /// <summary>
+    /// indicates whether the game is paused at present
+    /// </summary>
     bool ispaused;
+
     /// <summary>
     /// offset:  offset of displaying marker & drop
     /// offset2: offset of tile triggering
     /// offset3: offset of drop triggering
     /// </summary>
     public int offset, offset2, offset3;
+
+    /// <summary>
+    /// related to timing.
+    /// </summary>
     TextAsset songtiming;
     string[] timingarray;
     public List<PressState>[] tilearray;
     public List<PressState>[] droparray;
 
+    /// <summary>
+    /// tilecount: current number of tiles
+    /// tileall: the total number of tiles
+    /// </summary>
     public int[] tilecount = new int[15];
     public int[] tileall = new int[15];
 
+    /// <summary>
+    /// identical with above.
+    /// </summary>
     public int[] dropcount = new int[4];
     public int[] dropall = new int[4];
 
+    /// <summary>
+    /// drop: current drop object the player needs to touch
+    /// </summary>
     public Queue<GameObject>[] drop = new Queue<GameObject>[4];
+
+    /// <summary>
+    /// tiles&drops: the animators of the tile or drop slot
+    /// saved in order to play animations of triggering
+    /// </summary>
     public Animator[] tiles = new Animator[15];
     public Animator[] drops = new Animator[4];
 
+    /// <summary>
+    /// the exact time when the music starts to play
+    /// </summary>
     public float starttime;
-    public Text text;
+
+    /// <summary>
+    /// counts down when the player resumes the game
+    /// </summary>
     public Text pausetext;
-    float pausetime;
+
+    /// <summary>
+    /// the pool of drop objects.
+    /// a simple method used to improve performance
+    /// </summary>
     ObjectPool pool;
+
+    /// <summary>
+    /// the main audio.
+    /// </summary>
     AudioSource audiosource;
 
-    // Use this for initialization
     void Start()
     {
         pausetext.text = "";
@@ -62,7 +98,6 @@ public class GameController : MonoBehaviour {
         loadmusic("pathetique");
     }
 
-    // Update is called once per frame
     void FixedUpdate()
     {
         displaymarker();
@@ -197,7 +232,6 @@ public class GameController : MonoBehaviour {
                 {
                     Trigger(Convert.ToInt32(tag.Substring(4)));
                 }
-
             }
         }
         if (Input.touchCount >= 1)
