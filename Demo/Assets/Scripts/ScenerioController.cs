@@ -81,7 +81,7 @@ public class ScenerioController : MonoBehaviour
             {
                 if (currenttext++ >= textcount - 1 )
                 {
-                    SceneManager.LoadScene(0);
+                    StartCoroutine(SwitchScene());
                 }
                 else {
                     maintext.text = "";
@@ -103,5 +103,12 @@ public class ScenerioController : MonoBehaviour
             yield return null;
         }
         Time.timeScale = 1;
+    }
+    IEnumerator SwitchScene()
+    {
+        transition.SetTrigger("transition");
+        yield return new WaitForSeconds(2.5f);
+        PlayerPrefs.SetInt("NextScene", 0);
+        SceneManager.LoadScene(1);
     }
 }

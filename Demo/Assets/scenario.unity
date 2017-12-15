@@ -387,7 +387,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4785709590092008, guid: 1cf06d2e93b0d31438d9c8f36ac860fb, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -1
+      value: -3
       objectReference: {fileID: 0}
     - target: {fileID: 4785709590092008, guid: 1cf06d2e93b0d31438d9c8f36ac860fb, type: 2}
       propertyPath: m_LocalRotation.x
@@ -427,7 +427,7 @@ Prefab:
     - target: {fileID: 212441508516665430, guid: 1cf06d2e93b0d31438d9c8f36ac860fb,
         type: 2}
       propertyPath: m_Color.a
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1cf06d2e93b0d31438d9c8f36ac860fb, type: 2}
@@ -690,7 +690,7 @@ Canvas:
   serializedVersion: 3
   m_RenderMode: 1
   m_Camera: {fileID: 497898113}
-  m_PlaneDistance: 1
+  m_PlaneDistance: 8
   m_PixelPerfect: 1
   m_ReceivesEvents: 1
   m_OverrideSorting: 0

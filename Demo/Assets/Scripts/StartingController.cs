@@ -28,8 +28,8 @@ public class StartingController : MonoBehaviour {
     {
         transition.SetTrigger("transition");
         yield return new WaitForSeconds(2.5f);
-        PlayerPrefs.SetInt("NextScene", 3);
+        PlayerPrefs.SetInt("NextScene", 2);
         PlayerPrefs.SetInt("NextMusic", 0);
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(1);
     }
 }
